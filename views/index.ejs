@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>To Do List</h1>
+
+    <% if (todoImport.todos === undefined || todoImport.todos.length == 0) { %>
+      <h3><%= 'There are no To Dos yet!' %></h3>
+  <% } %>
+
+      <ul>
+        <% todoImport.todos.forEach(function(item) { %>
+        <li>
+    <h3>
+      <%= item.todo %> - <% if (item.done == false) { %> <%= 'Not Done' %> <% }
+      else {%> <%= 'Done' %> <% } %>
+    </h3>
+  </li>
+  <% }) %>
+</ul>
+
+<hr>
+
+    <form action="/" method="post">
+      <input required type="text" name="todoItem" />
+      <button type="submit">ADD TO DO</button>
+    </form>
+
+  </body>
+</html>
